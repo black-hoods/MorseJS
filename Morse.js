@@ -40,16 +40,17 @@ class MorseJS{
 
 	static crypt(message){
 		let cryptedMessage = '';
+		let cleanedMessage = message.replaceAll(' ', '');
 
-		for(let char in message){
-			let n = MorseJS.charCode[message[char].toLowerCase()];
+		for(let char in cleanedMessage){
+			let n = MorseJS.charCode[cleanedMessage[char].toLowerCase()];
 
-			if(n != null || n == ' '){
-				if(options.dashed && char > 0){
-					cryptedMessage += '-';
+			if(n != null){
+				if(char > 0){
+					cryptedMessage += ' ';
 				}
 
-				cryptedMessage += parseInt(n) + options.offset;
+				cryptedMessage += n;
 			}
 		}
 

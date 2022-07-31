@@ -91,10 +91,10 @@
 				let message = element.querySelector('.message').value;
 
 				if(element.classList.value.indexOf('crypt') > -1){
-					document.querySelector('.result.crypt').innerText = PhoneCrypter.crypt(message);
+					document.querySelector('.result.crypt').innerText = MorseJS.crypt(message);
 				}
 				else if(element.classList.value.indexOf('parse') > -1){
-					document.querySelector('.result.parse').innerText = PhoneCrypter.parse(message);
+					document.querySelector('.result.parse').innerText = MorseJS.parse(message);
 				}
 				e.preventDefault();
 			});
