@@ -59,17 +59,16 @@ class MorseJS{
 
 	static parse(cryptedMessage){
 		let parsedMessage = '';
+		let chars = cryptedMessage.split(' ');
 
-		for(let i = 0; i < cryptedMessage.length; i+=2){
-			let code = parseInt(cryptedMessage.substr(i, 2)) - options.offset + "";
-
-			parsedMessage += PhoneCrypter.getCharFromCode(code);
+		for(let char in chars){
+			parsedMessage += MorseJS.getCharFromCode(chars[char]);
 		}
 
 		return parsedMessage;
 	}
 
 	static getCharFromCode(code){
-		return Object.keys(PhoneCrypter.charCode).find(key => PhoneCrypter.charCode[key] === code);
+		return Object.keys(MorseJS.charCode).find(key => MorseJS.charCode[key] === code);
 	}
 }
